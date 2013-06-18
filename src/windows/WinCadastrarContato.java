@@ -8,6 +8,7 @@ public class WinCadastrarContato extends javax.swing.JFrame {
     public WinCadastrarContato() {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
     }
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

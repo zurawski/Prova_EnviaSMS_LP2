@@ -153,4 +153,8 @@ public class SMSDao {
            throw new RuntimeException("Erro ao inserir um Grupo");
         }
     }
+    
+    public void setPatchIcons(String patch)
+    {
+    }
 }

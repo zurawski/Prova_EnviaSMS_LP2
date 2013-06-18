@@ -25,7 +25,7 @@ public class MainPrincipal extends javax.swing.JFrame {
     
     private void setButtonSMS()
     {
-        ImageIcon addContact = new ImageIcon("F:/Envia SMS/resources/img/"+"addContato.png");
+        ImageIcon addContact = new ImageIcon("resources/img/"+"addContato.png");
         this.jEnviaSMS.setIcon(addContact);
     }
 
@@ -214,6 +214,8 @@ public class MainPrincipal extends javax.swing.JFrame {
     }//GEN-LAST:event_jMenuItem1ActionPerformed
 
     private void jAddUserActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jAddUserActionPerformed
+        WinCadastrarContato contato = new WinCadastrarContato();
+        contato.setVisible(true);
     }//GEN-LAST:event_jAddUserActionPerformed
 
     private void jEnviaSMSActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jEnviaSMSActionPerformed
