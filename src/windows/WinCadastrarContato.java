@@ -1,6 +1,6 @@
 package windows;
 
-import dados.SMSDao;
+import dados.SMSDAO;
 import dados.Contatos;
 
 public class WinCadastrarContato extends javax.swing.JFrame {
@@ -109,7 +109,7 @@ public class WinCadastrarContato extends javax.swing.JFrame {
         String NomeContato = jNomeContato.getText();
         String NumeroContato = jNumero.getText();
         Contatos cont = new Contatos(NomeContato, NumeroContato);
-        SMSDao dao = new SMSDao();
+        SMSDAO dao = new SMSDAO();
         dao.addContatos(cont);
     }//GEN-LAST:event_jButton1ActionPerformed
 

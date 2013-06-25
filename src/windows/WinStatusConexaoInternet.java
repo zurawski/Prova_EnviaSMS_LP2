@@ -1,55 +1,40 @@
-
 package windows;
 
 import java.net.InetAddress;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-
 public final class WinStatusConexaoInternet extends javax.swing.JFrame {
 
-    public WinStatusConexaoInternet(){
+    public WinStatusConexaoInternet() {
         initComponents();
         this.setLocationRelativeTo(this);
         this.testaConexao();
     }
-    
-    
-    public void testaConexao()
-    {
+
+    public void testaConexao() {
         String host = "8.8.8.8";
-        if(pingar(host))
-        {
+        if (pingar(host)) {
             System.out.println("FOI");
             this.jMensagem.setText("Conectado");
-        }
-        else
-        {
+        } else {
             System.out.println("N FOI");
             this.jMensagem.setText("Desconectado");
         }
-        
+
     }
 
-    public boolean pingar(String host)
-    {
-        try
-        {
-            if(InetAddress.getByName(host).isReachable(3000))
-            {
-                System.out.println("FOI");
+    public boolean pingar(String host) {
+        try {
+            if (InetAddress.getByName(host).isReachable(3000)) {
                 return true;
+            } else {
+                return false;
             }
-            else
-            {
-                System.out.println("NAO FOI");
-            }
+        } catch (Exception e) {
+            throw new RuntimeException("Erro conexao");
         }
-        catch(Exception e)
-        {
-            System.out.println("Ping Fail");
-        }
-        return false;
+        
     }
 
     @SuppressWarnings("unchecked")
@@ -110,7 +95,7 @@ public final class WinStatusConexaoInternet extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-    this.dispose();        // TODO add your handling code here:
+        this.dispose();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
 
     public static void main(String args[]) {
@@ -136,8 +121,8 @@ public final class WinStatusConexaoInternet extends javax.swing.JFrame {
             @Override
             public void run() {
                 new WinStatusConexaoInternet().setVisible(true);
-                
-                }
+
+            }
         });
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -11,7 +11,27 @@ public class BrwLogin extends javax.swing.JFrame {
     public BrwLogin() {
         initComponents();
         this.setLocationRelativeTo(null);
+        
     }
+    
+    
+    public void setAcessoLogin(String usuario)
+    {
+        if (usuario.equals("zurawski"))
+        {
+            Login.acesso = 1;
+        }
+        else
+        {
+            Login.acesso = 0;
+        } 
+    }
+    
+    private void detectaPrimeiroLogin()
+    {
+        
+    }
+            
 
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -95,9 +115,9 @@ public class BrwLogin extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String usuario = tbx_login.getText();
         String Senha = tbx_senha.getText();
-
-        MainPrincipal main = new MainPrincipal();
         Login.login = usuario;
+        setAcessoLogin(usuario);
+        MainPrincipal main = new MainPrincipal();
         main.setVisible(true);
         this.dispose();
 

@@ -24,5 +24,7 @@ public class TesteConexao {
             System.out.printf("%d - %s", x, nome);
 
         }
+        
+        stmt.executeQuery("insert into USUARIOS(nome,senha,acesso) values('sms','123','total')");
     }
 }

@@ -1,11 +1,8 @@
 
 package windows;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.util.ArrayList;
+import dados.SMSDAO;
 
 public class WinAlteraNomeGrupo extends javax.swing.JFrame {
 
@@ -15,42 +12,16 @@ public class WinAlteraNomeGrupo extends javax.swing.JFrame {
     }
 
     
-    public final void fillComboGrupos()
+    private void fillComboGrupos()
     {
-        String selectGrupos = "select nome from GRUPOS";
-        PreparedStatement stmt = null;
-		ResultSet rs = null;
-		Connection con = null;
-		try {
-			con = DriverManager.getConnection(
-					"jdbc:postgresql://localhost:5432/SMS", "postgres",
-					"senacrs");
-
-			stmt = con.prepareStatement(selectGrupos);
-			rs = stmt.executeQuery();
-			while (rs.next()) 
-                        {
-                            System.out.println("entrei aqui");
-				String nome = rs.getString("nome");
-                                jGrupos.addItem(nome);
-			}
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			try {
-				if (stmt != null) {
-					stmt.close();
-				}
-				if (rs != null) {
-					stmt.close();
-				}
-				if (con != null) {
-					stmt.close();
-				}
-			} catch (SQLException e) {
-				e.printStackTrace();
-			}
-		}
+        SMSDAO dao = new SMSDAO();
+        ArrayList<String> lista = new ArrayList<String>();
+        lista = dao.fillComboGrupos();
+        for (int i = 0; i < lista.size(); i++)
+        {
+            jGrupos.addItem(lista.get(i));
+        }
+        
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents

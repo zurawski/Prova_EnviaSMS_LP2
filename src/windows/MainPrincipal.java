@@ -6,6 +6,7 @@ import java.awt.Toolkit;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
+import dados.Login;
 
 public class MainPrincipal extends javax.swing.JFrame {
 
@@ -15,12 +16,25 @@ public class MainPrincipal extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
         this.setButtonSMS();
+        this.verificaAcessoUsuarioLogado();
     }
 
     private void maximizaWindow() {
         Container c = getContentPane();
         Dimension tela = Toolkit.getDefaultToolkit().getScreenSize();
         this.setSize(tela.width - 10, tela.height - 50);
+    }
+    
+    public void verificaAcessoUsuarioLogado()
+    {
+        if (!(Login.acesso.equals(1)))
+        {
+            jAdminPainel.setVisible(false);
+        }
+        else
+        {
+            jAdminPainel.setVisible(true);
+        }
     }
     
     private void setButtonSMS()
@@ -45,6 +59,7 @@ public class MainPrincipal extends javax.swing.JFrame {
         jMenu9 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
+        jMenuItem9 = new javax.swing.JMenuItem();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem3 = new javax.swing.JMenuItem();
         jMenuItem4 = new javax.swing.JMenuItem();
@@ -128,7 +143,7 @@ public class MainPrincipal extends javax.swing.JFrame {
                 .addComponent(jConfig, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 304, Short.MAX_VALUE))
+                .addGap(0, 288, Short.MAX_VALUE))
         );
 
         jMenu1.setText("Sistema");
@@ -151,6 +166,10 @@ public class MainPrincipal extends javax.swing.JFrame {
         jMenuBar1.add(jMenu9);
 
         jMenu2.setText("Funcionários");
+
+        jMenuItem9.setText("Cadastrar Funcionário");
+        jMenu2.add(jMenuItem9);
+
         jMenuBar1.add(jMenu2);
 
         jMenu3.setText("Relatórios");
@@ -195,7 +214,7 @@ public class MainPrincipal extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jUserPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(jAdminPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
@@ -203,8 +222,9 @@ public class MainPrincipal extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jUserPainel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jAdminPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jAdminPainel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         pack();
@@ -269,6 +289,7 @@ public class MainPrincipal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem6;
     private javax.swing.JMenuItem jMenuItem7;
     private javax.swing.JMenuItem jMenuItem8;
+    private javax.swing.JMenuItem jMenuItem9;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JPanel jUserPainel;
     // End of variables declaration//GEN-END:variables

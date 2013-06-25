@@ -2,12 +2,8 @@
 package windows;
 
 import dados.Grupos;
-import dados.SMSDao;
+import dados.SMSDAO;
 
-/**
- *
- * @author aluno
- */
 public class WinCadastraGrupos extends javax.swing.JFrame {
 
     public WinCadastraGrupos() {
@@ -83,7 +79,7 @@ public class WinCadastraGrupos extends javax.swing.JFrame {
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         String NomeGrupo = jNomeGrupo.getText();
         Grupos grp = new Grupos(NomeGrupo);
-        SMSDao dao = new SMSDao();
+        SMSDAO dao = new SMSDAO();
         dao.addGrupos(grp);
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -105,9 +101,7 @@ public class WinCadastraGrupos extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(WinCadastraGrupos.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
 
-        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new WinCadastraGrupos().setVisible(true);

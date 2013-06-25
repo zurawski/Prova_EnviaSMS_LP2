@@ -1,5 +1,5 @@
 package windows;
-import dados.SMSDao;
+import dados.SMSDAO;
 import dados.ModeloSMS;
 
 public class WinCadastrarModeloSMS extends javax.swing.JFrame {
@@ -94,7 +94,7 @@ public class WinCadastrarModeloSMS extends javax.swing.JFrame {
         String Mensagem = jModeloMSG.getText();
         ModeloSMS modelo = new ModeloSMS(Nome, Mensagem);
         
-        SMSDao dao = new SMSDao();
+        SMSDAO dao = new SMSDAO();
         dao.addModelos(modelo);
     }//GEN-LAST:event_jButton2ActionPerformed
 
